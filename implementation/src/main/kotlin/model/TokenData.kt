@@ -1,4 +1,4 @@
-package org.example.model
+package org.example.model.model
 
 class TokenData(val token: Token, val value: String) {
 
