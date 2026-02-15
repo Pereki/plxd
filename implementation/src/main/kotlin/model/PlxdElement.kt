@@ -1,4 +1,4 @@
-package org.example.model.model
+package model
 
 class PlxdElement : Element() {
     var key: String = "";

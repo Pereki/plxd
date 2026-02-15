@@ -1,7 +1,7 @@
-package org.example.parser
+package parser
 
-import org.example.model.model.Token
-import org.example.model.model.TokenData
+import model.Token
+import model.TokenData
 
 class Tokenizer {
         fun tokenize(input: String): List<TokenData> {

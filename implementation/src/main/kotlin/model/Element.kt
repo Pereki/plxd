@@ -1,4 +1,4 @@
-package org.example.model.model
+package model
 
 open class Element {
 

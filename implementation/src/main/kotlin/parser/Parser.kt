@@ -1,10 +1,9 @@
-package org.example.parser
+package parser
 
-import org.example.model.model.Element
-import org.example.model.model.PlxdElement
-import org.example.model.model.StringElement
-import org.example.model.model.Token
-import org.example.model.model.TokenData
+import model.PlxdElement
+import model.StringElement
+import model.Token
+import model.TokenData
 
 class Parser {
 

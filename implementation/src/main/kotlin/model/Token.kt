@@ -1,4 +1,4 @@
-package org.example.model.model
+package model
 
 enum class Token(val regex: String) {
     PLXD_START("pl\\{"),
