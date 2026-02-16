@@ -4,14 +4,18 @@ import parser.Parser
 import parser.Tokenizer
 
 
-fun main() {
+fun main(args: Array<String>) {
     val tokenizer = Tokenizer();
     val parser = Parser();
-    val res =tokenizer.tokenize(
-            "    pl{\n" +
-            "Bohne: \"abc\",\n" +
-            "Zug: pl{ Bohne: \"cde\", Zug: \"cde\" }xd\n" +
-            "    }xd\n")
+
+    if(args.isEmpty()) {
+        println("Please provide an input string as a command line argument");
+        return;
+    }
+
+    val res =tokenizer.tokenize(args[0])
     println(res);
-    var res2 =parser.parse(res);
+    println("successfully tokenized input, now parsing...");
+    parser.parse(res);
+    println("successfully parsed input");
 }
