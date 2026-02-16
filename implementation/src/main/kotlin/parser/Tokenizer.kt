@@ -8,36 +8,24 @@ class Tokenizer {
             var inputSplice = input;
             val tokens = mutableListOf<TokenData>();
             var lookup = "";
-            var longestMatchIndex = 0;
-            var lookupNumber = 0;
-            var longestMatch : Token? = null;
 
-            while (!inputSplice.isEmpty()){
-                if(inputSplice.get(lookupNumber) == '\n' || inputSplice.get(lookupNumber) == ' ') {
+            for(char in inputSplice) {
 
-                    if(longestMatch != null) {
-                        inputSplice = inputSplice.substring(longestMatchIndex);
-                        tokens.add(TokenData(longestMatch, lookup.replace("\n", "").replace(" ", "").replace(",", "").replace("\"", "")));
-                    }
-                    longestMatchIndex = 0;
-                    lookupNumber = 0;
-                    lookup = "";
-                    longestMatch = null;
-                    inputSplice = inputSplice.substring(1);
+                if(char.isWhitespace() || char == '\n' || char == '\r') {
                     continue;
                 }
 
-                lookup += inputSplice.get(lookupNumber);
+                lookup += char;
 
                 for(token in Token.entries) {
                     if(lookup.matches(Regex(token.regex))) {
-                        longestMatchIndex = lookupNumber;
-                        longestMatch = token;
+                        tokens.add(TokenData(token, lookup));
+                        lookup = "";
+                        break;
                     }
                 }
-
-                lookupNumber++;
             }
+
 
             if(lookup.isNotEmpty()) {
                 throw IllegalArgumentException("Unexpected token: $lookup");

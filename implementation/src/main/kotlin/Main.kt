@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
         return;
     }
 
-    val res =tokenizer.tokenize(args[0])
+    val res =tokenizer.tokenize(args.first())
     println(res);
     println("successfully tokenized input, now parsing...");
     parser.parse(res);
